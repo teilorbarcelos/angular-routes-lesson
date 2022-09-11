@@ -13,6 +13,13 @@ const routes: Routes = [
     component: AboutComponent,
     children: [{ path: ':id/:username', component: AboutComponent }],
   },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then(
+        (module) => module.DashboardModule,
+      ),
+  },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404' },
 ]
